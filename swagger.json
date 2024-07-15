@@ -1,0 +1,39 @@
+{
+  "definition": {
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Swagger api for company's data management service",
+      "description": "Management API",
+      "termsOfService": "http://localhost:3000/terms/",
+      "contact": {
+        "name": "Margav Ghoghari",
+        "email": "margavghoghari@gmail.com",
+        "url": "https://www.codal.com/"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8000/api",
+        "description": "Local server"
+      },
+    ],
+    "components": {
+      "securitySchemes": {
+        "jwt": {
+          "type": "http",
+          "scheme": "bearer",
+          "in": "header",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  },
+  "apis": [
+    "./controllers/*"
+  ]
+}
