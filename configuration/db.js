@@ -5,7 +5,7 @@ const dbConfig = () => {
             "host": "localhost",
             "username": process.env.USERNAME,
             "password": process.env.DEV_PASS,
-            "database": "db_dev",
+            "database": "hiart_db_dev",
             "port": 5432,
             "dialect": "postgres"
         },
@@ -13,7 +13,7 @@ const dbConfig = () => {
             "host": "65.20.80.168",
             "username": "root",
             "password": process.env.PROD_PASS,
-            "database": "db_prod",
+            "database": "hiart_db_prod",
             "port": 5432,
             "dialect": "postgres"
         },
