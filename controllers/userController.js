@@ -16,7 +16,7 @@ const {getPaginated, pagination} = require("../util/common");
  * @openapi
  * components:
  *   schemas:
- *     User:
+ *     Users:
  *       type: object
  *       properties:
  *         first_name:
