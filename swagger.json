@@ -5,7 +5,7 @@
       "version": "1.0.0",
       "title": "Swagger api for user management service",
       "description": "Management API",
-      "termsOfService": "http://65.20.80.168:3000/terms/",
+      "termsOfService": "http://margavprint.com:3000/terms/",
       "contact": {
         "name": "Margav Ghoghari",
         "email": "margav9535@gmail.com",
@@ -18,7 +18,7 @@
     },
     "servers": [
       {
-        "url": "http://65.20.80.168:8000/api/",
+        "url": "http://margavprint.com:8000/api/",
         "description": "Production server"
       }
     ],
