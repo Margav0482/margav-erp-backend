@@ -136,7 +136,7 @@ module.exports.login = async (req, res, next) => {
         if (!user) {
             return res.status(404).json({message: "User not found"});
         }
-        const secret = process.env.secretKey;
+        const secret = process.env.SECRETKEY;
         if (bcrypt.compareSync(data.password, user.password)) {
             const userData = await util.cleanData(user);
             delete userData.password;

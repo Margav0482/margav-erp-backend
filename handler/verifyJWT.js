@@ -4,7 +4,7 @@ const Model = require("../models/index");
 
 async function verifyJWT(req, res, next) {
     try {
-        const secret = process.env.secretKey;
+        const secret = process.env.SECRETKEY;
         const token = req?.headers["authorization"]?.split(" ")[1];
         const tokenDecoded = jwt.verify(token, secret);
         if (process.env.NODE_ENV !== "test" && Date.now() >= tokenDecoded.exp * 1000) {

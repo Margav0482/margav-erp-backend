@@ -2,7 +2,7 @@ const {expressjwt} = require("express-jwt");
 require("dotenv/config");
 
 function jwt() {
-    const secret = process.env.secretKey;
+    const secret = process.env.SECRETKEY;
     return expressjwt({secret, algorithms: ["HS256"]}).unless({
         path: [
             // public routes that don't require authentication
