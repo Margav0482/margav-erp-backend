@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'  # Specify your Node.js version
+        node-version: '20'  # Specify your Node.js version
 
     - name: Install dependencies
       run: npm install
@@ -30,4 +30,6 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > deploy_key
         chmod 600 deploy_key
-        ssh -o StrictHostKeyChecking=no -i deploy_key root@65.20.80.168 'chmod +x /root/margav/deployment/git.sh && /root/margav/deployment/git.sh'
+        ssh -o StrictHostKeyChecking=no -i deploy_key root@65.20.80.168 << EOF
+          chmod +x /root/margav/deployment/git.sh
+          /root/margav/deployment/git.sh EOF
