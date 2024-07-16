@@ -32,5 +32,5 @@ jobs:
         ssh-add deploy_key
         ssh -o StrictHostKeyChecking=no root@65.20.80.168 << 'EOF'
           chmod +x /root/margav/deployment/git.sh
-          /root/margav/deployment/git.sh
-EOF
+          /root/margav/deployment/git.sh 
+        EOF
