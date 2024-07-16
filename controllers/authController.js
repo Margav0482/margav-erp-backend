@@ -38,7 +38,7 @@ const util = require("../util/common");
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/components/schemas/Authentication'
  *     security:
  *       - jwt: []
  *     responses:

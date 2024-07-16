@@ -48,7 +48,7 @@ const {getPaginated, pagination} = require("../util/common");
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/components/schemas/Users'
  *     security:
  *       - jwt: []
  *     responses:
@@ -203,7 +203,7 @@ exports.getItem = async (req, res, next) => {
  *      content:
  *        application/json:
  *          schema:
- *            $ref: '#/components/schemas/User'
+ *            $ref: '#/components/schemas/Users'
  *    security:
  *       - jwt: []
  *    responses:
