@@ -6,34 +6,55 @@ on:
       - master
 
 jobs:
+  build:
+    name: Build Node.js Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Check Github User
+        run: |
+          git --version
+          git config user.name 'Margav0482'
+          git config user.email 'margav9535@gmail.com'
+          git config user.name
+          git config user.email
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20.14.0
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Ensure full history is fetched
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Ensure full history is fetched
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'  # Specify your Node.js version
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # Specify your Node.js version
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Deploy to server
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      run: |
-        echo "$SSH_PRIVATE_KEY" > deploy_key
-        chmod 600 deploy_key
-        # Here we use ssh-agent to handle the key correctly
-        eval "$(ssh-agent -s)"
-        ssh-add deploy_key
-        ssh -o StrictHostKeyChecking=no root@65.20.80.168 << 'EOF'
-          chmod +x /root/margav/deployment/git.sh
-          /root/margav/deployment/git.sh 
-        EOF
+      - name: Deploy to server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > deploy_key
+          chmod 600 deploy_key
+          # Here we use ssh-agent to handle the key correctly
+          eval "$(ssh-agent -s)"
+          ssh-add deploy_key
+          ssh -o StrictHostKeyChecking=no root@65.20.80.168 << 'EOF'
+            chmod +x /root/margav/deployment/git.sh
+            /root/margav/deployment/git.sh 
+          EOF
