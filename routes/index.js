@@ -1,5 +1,5 @@
 const AuthController = require("../controllers/authController");
-const SwaggerController = require("../controllers/SwaggerController");
+const SwaggerController = require("../controllers/swaggerController");
 const path = require("path");
 const verifyJWT = require("../handler/verifyJWT");
 const verifyAdmin = require("../handler/isAdmin");
