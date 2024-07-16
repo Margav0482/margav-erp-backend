@@ -3,12 +3,12 @@
     "openapi": "3.0.0",
     "info": {
       "version": "1.0.0",
-      "title": "Swagger api for company's data management service",
+      "title": "Swagger api for user management service",
       "description": "Management API",
       "termsOfService": "http://localhost:3000/terms/",
       "contact": {
         "name": "Margav Ghoghari",
-        "email": "margavghoghari@gmail.com",
+        "email": "margav9535@gmail.com",
         "url": "https://www.codal.com/"
       },
       "license": {
@@ -20,7 +20,7 @@
       {
         "url": "http://localhost:8000/api",
         "description": "Local server"
-      },
+      }
     ],
     "components": {
       "securitySchemes": {

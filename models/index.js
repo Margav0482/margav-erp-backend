@@ -5,19 +5,19 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
-const config = require("../configuration/db.js");
+const {dbConfig} = require("../configuration/db");
 const db = {};
 
 let sequelize;
 
-if (config.useDev) {
+if (dbConfig().useDev) {
     sequelize = new Sequelize.Sequelize(
-        config.development.database,
-        config.development.username,
-        config.development.password,
+        dbConfig().development.database,
+        dbConfig().development.username,
+        dbConfig().development.password,
         {
-            dialect: config.development.dialect,
-            port: config.development.port,
+            dialect: dbConfig().development.dialect,
+            port: dbConfig().development.port,
             logging: console.log,
             sync: true,
             define: {
@@ -27,12 +27,12 @@ if (config.useDev) {
     )
 } else {
     sequelize = new Sequelize.Sequelize(
-        config.production.database,
-        config.production.username,
-        config.production.password,
+        dbConfig().production.database,
+        dbConfig().production.username,
+        dbConfig().production.password,
         {
-            dialect: config.production.dialect,
-            port: config.production.port,
+            dialect: dbConfig().production.dialect,
+            port: dbConfig().production.port,
             sync: true,
             define: {
                 freezeTableName: true
@@ -41,7 +41,7 @@ if (config.useDev) {
     )
 }
 
-if (config.useDev) {
+if (dbConfig().useDev) {
     (async () => {
         // This will sync the tables if they are not created or their attributes are changed.
         await sequelize.sync(({alter: true}));
