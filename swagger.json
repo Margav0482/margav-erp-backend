@@ -24,16 +24,15 @@
     ],
     "components": {
       "securitySchemes": {
-        "jwt": {
+        "bearerAuth": {
           "type": "http",
           "scheme": "bearer",
-          "in": "header",
           "bearerFormat": "JWT"
         }
       }
     }
   },
   "apis": [
-    "./controllers/*"
+    "./margav-erp-backend/controllers/*"
   ]
 }
