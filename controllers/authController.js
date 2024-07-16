@@ -29,27 +29,6 @@ const util = require("../util/common");
 
 /**
  * @openapi
- * components:
- *   schemas:
- *     User:
- *       type: object
- *       properties:
- *         first_name:
- *           type: string
- *           description: The username
- *         last_name:
- *           type: string
- *           description: The username
- *         email:
- *           type: string
- *           description: The user email
- *         password:
- *           type: string
- *           description: The user password
- */
-
-/**
- * @openapi
  * /signup:
  *   post:
  *     summary: Signup new user

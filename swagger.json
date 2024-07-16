@@ -5,11 +5,11 @@
       "version": "1.0.0",
       "title": "Swagger api for user management service",
       "description": "Management API",
-      "termsOfService": "http://localhost:3000/terms/",
+      "termsOfService": "http://65.20.80.168:3000/terms/",
       "contact": {
         "name": "Margav Ghoghari",
         "email": "margav9535@gmail.com",
-        "url": "https://www.codal.com/"
+        "url": "https://www.priyanshart.com/"
       },
       "license": {
         "name": "Apache 2.0",
@@ -18,8 +18,8 @@
     },
     "servers": [
       {
-        "url": "http://localhost:8000/api",
-        "description": "Local server"
+        "url": "http://65.20.80.168:8000/api/",
+        "description": "Production server"
       }
     ],
     "components": {
