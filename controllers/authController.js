@@ -19,6 +19,21 @@ const util = require("../util/common");
  *     Authentication:
  *       type: object
  *       properties:
+ *         first_name:
+ *           type: string
+ *           description: The user first name
+ *         last_name:
+ *           type: string
+ *           description: The user last name
+ *         email:
+ *           type: string
+ *           description: The user email
+ *         password:
+ *           type: string
+ *           description: The user password
+ *     Authorization:
+ *       type: object
+ *       properties:
  *         email:
  *           type: string
  *           description: The user email
@@ -92,7 +107,7 @@ module.exports.signup = async (req, res, next) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Authentication'
+ *             $ref: '#/components/schemas/Authorization'
  *     responses:
  *       200:
  *         description: The user was successfully created

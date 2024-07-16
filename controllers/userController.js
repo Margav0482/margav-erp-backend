@@ -31,9 +31,6 @@ const {getPaginated, pagination} = require("../util/common");
  *         password:
  *           type: string
  *           description: The user password
- *         date_of_birth:
- *           type: string
- *           description: The user birth date
  *
  */
 
