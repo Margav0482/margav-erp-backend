@@ -1,6 +1,3 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
 name: Margav ERP Backend NodeJS Deployment
 
 on:
@@ -30,6 +27,10 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > deploy_key
         chmod 600 deploy_key
-        ssh -o StrictHostKeyChecking=no -i deploy_key root@65.20.80.168 << EOF
+        # Here we use ssh-agent to handle the key correctly
+        eval "$(ssh-agent -s)"
+        ssh-add deploy_key
+        ssh -o StrictHostKeyChecking=no root@65.20.80.168 << 'EOF'
           chmod +x /root/margav/deployment/git.sh
-          /root/margav/deployment/git.sh EOF
+          /root/margav/deployment/git.sh
+EOF
