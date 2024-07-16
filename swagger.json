@@ -33,6 +33,6 @@
     }
   },
   "apis": [
-    "./margav-erp-backend/controllers/*"
+    "./controllers/*"
   ]
 }
