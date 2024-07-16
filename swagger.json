@@ -24,9 +24,10 @@
     ],
     "components": {
       "securitySchemes": {
-        "bearerAuth": {
+        "jwt": {
           "type": "http",
           "scheme": "bearer",
+          "in": "header",
           "bearerFormat": "JWT"
         }
       }
